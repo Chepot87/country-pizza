@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Country Pizza | Aguadilla</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- SEO -->
   <meta name="description" content="Country Pizza Sport Bar en Aguadilla - Pizzas, barra, billar y más.">
   <meta name="keywords" content="pizza, aguadilla, barra, billar, country pizza, restaurante, puerto rico">
   <meta name="author" content="Country Pizza & Norvak">
-  <!-- Favicon -->
-  <link rel="icon" href="img/logo.svg" type="image/x-icon">
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Country Pizza | Aguadilla">
+  <meta property="og:description" content="Más de 40 años sirviendo buena comida y jangueo en Aguadilla.">
+  <meta property="og:image" content="https://chepot87.github.io/country-pizza/img/logo.svg">
+  <meta property="og:url" content="https://chepot87.github.io/country-pizza/">
+  <meta property="og:type" content="website">
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
@@ -25,25 +38,24 @@
     gtag('config', 'G-XXXXXXXXXX');
   </script>
 </head>
+
 <body>
-
   <!-- HEADER -->
-<header>
-  <div class="header-container">
-    <div class="logo-brand">
-      <img src="img/logo.svg" alt="Logo de Country Pizza" class="logo-img">
-      <span class="brand-name">Country Pizza<br><small>Sport Bar</small></span>
+  <header>
+    <div class="header-container">
+      <div class="logo-brand">
+        <img src="img/logo.svg" alt="Logo de Country Pizza" class="logo-img">
+        <span class="brand-name">Country Pizza<br><small>Sport Bar</small></span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#menu-section">Menú</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#menu-section">Menú</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+  </header>
 
   <!-- HERO -->
   <section id="hero">
@@ -100,33 +112,32 @@
   </section>
 
   <!-- SECCIÓN: CONTACTO -->
-<section id="contacto">
-  <h2>Visítanos</h2>
-  <div class="info-line">
-    <i class="fas fa-map-marker-alt"></i>
-    <span>Carr. 110 Km 9, Bo. Maleza, Aguadilla, PR</span>
-  </div>
-  <div class="info-line">
-    <i class="fas fa-clock"></i>
-    <span>Abierto todos los días: 4 pm – 12 am</span>
-  </div>
-  <div class="info-line">
-    <i class="fas fa-utensils"></i>
-    <span>Almuerzo: 11 am – 2 pm</span>
-  </div>
-  <div class="info-line">
-    <i class="fas fa-phone"></i>
-    <a href="tel:17878914860">Llamar ahora: (787) 891-4860</a>
-  </div>
-</section>
+  <section id="contacto">
+    <h2>Visítanos</h2>
+    <div class="info-line">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Carr. 110 Km 9, Bo. Maleza, Aguadilla, PR</span>
+    </div>
+    <div class="info-line">
+      <i class="fas fa-clock"></i>
+      <span>Abierto todos los días: 4 pm – 12 am</span>
+    </div>
+    <div class="info-line">
+      <i class="fas fa-utensils"></i>
+      <span>Almuerzo: 11 am – 2 pm</span>
+    </div>
+    <div class="info-line">
+      <i class="fas fa-phone"></i>
+      <a href="tel:17878914860">Llamar ahora: (787) 891-4860</a>
+    </div>
+  </section>
 
   <!-- SECCIÓN: MAPA Y REDES SOCIALES -->
   <section id="social-map">
     <h2>Conéctate con nosotros</h2>
     <p>Síguenos en nuestras redes sociales y visita nuestro local.</p>
 
-    <!-- Social Icons -->  
-  <div class="social-icons">
+    <div class="social-icons">
       <a href="https://www.facebook.com/CountryPizzaa" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <i class="fab fa-facebook-f"></i>
       </a>
@@ -138,35 +149,30 @@
       </a>
     </div>
 
-    <p>Encuéntranos en:</p>   
-<div class="map-container">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.149722116716!2d-67.12504398730123!3d18.50460047092597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c029616f8e64d75%3A0x7356a68ba6d44dca!2sCountry%20Pizza!5e0!3m2!1sen!2sus!4v1750828525017!5m2!1sen!2sus"
-    width="100%" height="300"
-    style="border:0; border-radius: 12px; margin-top: 20px;"
-    allowfullscreen="" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
-
-  
+    <p>Encuéntranos en:</p>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.149722116716!2d-67.12504398730123!3d18.50460047092597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c029616f8e64d75%3A0x7356a68ba6d44dca!2sCountry%20Pizza!5e0!3m2!1sen!2sus!4v1750828525017!5m2!1sen!2sus"
+        width="100%" height="300"
+        style="border:0; border-radius: 12px; margin-top: 20px;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </section>
 
   <!-- FOOTER -->
-<footer>
-  </div>
-  <div class="footer-container">
-    <div class="footer-logo">
-      <img src="img/logo.svg" alt="Logo Country Pizza">
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="img/logo.svg" alt="Logo Country Pizza">
+      </div>
+      <div class="footer-info">
+        <p>© 2025 Country Pizza</p>
+        <p>Hecho con ❤️ por Norvak©</p>
+      </div>
     </div>
-
-    <div class="footer-info">
-      <p>© 2025 Country Pizza</p>
-      <p>Hecho con ❤️ por Norvak©</p>
-    </div>
-</footer>
-
+  </footer>
 
   <!-- JS -->
   <script src="script.js"></script>
