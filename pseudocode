@@ -1,0 +1,39 @@
+INICIO LANDING PAGE COUNTRY PIZZA
+
+1. CABECERA (HEADER)
+    - Logo de Country Pizza (ver foto del letrero)
+    - Nombre: Country Pizza Sport Bar
+    - Menú fijo con botones: Inicio | Menú | Contacto
+
+2. SECCIÓN HERO
+    - Imagen grande del local (como la de Facebook, interior/barra)
+    - Copy: “Más de 40 años sirviendo sabor en Aguadilla”
+    - Botón primario: “Happy Hour” → pop up menu con diferentes HH
+
+3. SECCIÓN: LA COCINA
+    - Título: “Plato”
+    - Texto: “Pizzas, alitas, mofongo y picadera criolla al estilo de la casa.”
+    - Galería: fotos de platos fritos, pizza, etc.
+    - Botón: “Ver menú” -> pop up con menu
+
+4. SECCIÓN: BARRA Y BILLARES
+    - Título: “Billares, Buena Vibra y Música”
+    - Texto: “Ambiente para jangueo con barra, billares & música.”
+    - Imagen del bar / área de billar
+    - Info flash: “Take away • Eat in • Dog friendly” :contentReference[oaicite:2]{index=2}
+
+5. SECCIÓN: INFO Y HORARIOS
+    - Dirección: Carr. 110 Km 9, Bo. Maleza, Aguadilla, PR
+    - Horario: Lun a Dom 4 pm – 11 pm :contentReference[oaicite:3]{index=3}
+    - Teléfono con botón “Llamar ahora”
+    - Enlace a Social media”
+
+6. PIE DE PÁGINA (FOOTER)
+    - Copyright © 2025 Country Pizza
+    - “Hecho con ❤️ por la siguiente generación”
+
+
+
+
+
+
