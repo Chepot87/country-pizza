@@ -12,6 +12,8 @@ const closeMenu = document.getElementById('close-menu');
 
 // Función para abrir modal
 function openModal(modal, hasCards = false) {
+  if (!modal) return;
+
   modal.classList.add('show');
   document.body.classList.add('modal-open');
 
@@ -28,6 +30,8 @@ function openModal(modal, hasCards = false) {
 
 // Función para cerrar modal
 function closeModal(modal) {
+  if (!modal) return;
+
   modal.classList.remove('show');
   document.body.classList.remove('modal-open');
 }
@@ -58,45 +62,74 @@ if (menuModal && openMenu && closeMenu) {
 
 // === CERRAR MODAL SI HACES CLICK FUERA DEL CONTENIDO ===
 window.addEventListener('click', (e) => {
-  if (e.target === happyModal) closeModal(happyModal);
-  if (e.target === menuModal) closeModal(menuModal);
+  if (happyModal && e.target === happyModal) closeModal(happyModal);
+  if (menuModal && e.target === menuModal) closeModal(menuModal);
 });
 
 // === CERRAR MODAL CON ESCAPE ===
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    if (happyModal.classList.contains('show')) closeModal(happyModal);
-    if (menuModal.classList.contains('show')) closeModal(menuModal);
+    if (happyModal && happyModal.classList.contains('show')) closeModal(happyModal);
+    if (menuModal && menuModal.classList.contains('show')) closeModal(menuModal);
   }
 });
 
 
-// Animación de aparición al hacer scroll
-const observerOptions = {
-    threshold: 0.2
-};
+// ========== ANIMACIÓN DE APARICIÓN AL HACER SCROLL (REVEAL) ==========
+// Animar una sola vez y luego dejarlo quieto (evita bugs al volver arriba)
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-        }
-    });
+const observerOptions = { threshold: 0.2 };
+
+const revealObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+      obs.unobserve(entry.target); // se anima una vez y ya
+    }
+  });
 }, observerOptions);
 
-// Aplicar a todas las secciones
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = "0";
-    section.style.transform = "translateY(30px)";
-    section.style.transition = "all 0.8s ease-out";
-    observer.observe(section);
+// Aplicar a todas las secciones (EXCEPTO el hero si tiene id="hero")
+document.querySelectorAll('section:not(#hero)').forEach(section => {
+  section.style.opacity = "0";
+  section.style.transform = "translateY(30px)";
+  section.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+  revealObserver.observe(section);
 });
 
-// Efecto interactivo en el título (se mueve un poco con el mouse)
+
+// ========== EFECTO INTERACTIVO EN EL TÍTULO (HERO) ==========
+// IMPORTANTE: tu H1 del hero debe tener id="hero-title"
+// Esto usa CSS variables para NO pelear con otros transforms.
+
 document.addEventListener('mousemove', (e) => {
-    const title = document.querySelector('h1');
-    const x = (window.innerWidth / 2 - e.pageX) / 25;
-    const y = (window.innerHeight / 2 - e.pageY) / 25;
-    title.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+  const title = document.getElementById('hero-title');
+  if (!title) return;
+
+  // Más suave (menos mareo)
+  const x = (window.innerWidth / 2 - e.pageX) / 40;
+  const y = (window.innerHeight / 2 - e.pageY) / 40;
+
+  title.style.setProperty('--rx', `${x}deg`);
+  title.style.setProperty('--ry', `${y}deg`);
 });
+
+// Reset del tilt cuando sueltas el mouse o sales de la ventana
+document.addEventListener('mouseleave', () => {
+  const title = document.getElementById('hero-title');
+  if (!title) return;
+  title.style.setProperty('--rx', `0deg`);
+  title.style.setProperty('--ry', `0deg`);
+});
+
+// Reset cuando vuelves al top (scroll arriba)
+window.addEventListener('scroll', () => {
+  const title = document.getElementById('hero-title');
+  if (!title) return;
+
+  if (window.scrollY < 40) {
+    title.style.setProperty('--rx', `0deg`);
+    title.style.setProperty('--ry', `0deg`);
+  }
+}, { passive: true });

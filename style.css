@@ -35,7 +35,22 @@ body{
   color: var(--text);
 }
 
-/* Reduce motion (pro y humano) */
+body{
+  background-color: #fff8f0;
+  background-image: url("img/country-background.png");
+  background-repeat: repeat;
+  background-size: 900px;          /* sube: 700–1400px */
+  background-position: center top;
+  background-attachment: fixed;    /* steady al scroll */
+}
+
+@media (max-width: 900px){
+  body{
+    background-attachment: scroll;
+  }
+}
+
+/* Reduce motion (pro) */
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; }
   html{ scroll-behavior: auto; }
@@ -167,12 +182,32 @@ nav a:hover::after{ width: 100%; }
   background:
     linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.45)),
     url('img/hero-wood.png') center center / cover no-repeat;
-  color: #fff;
+  color: #ffffff;
   padding: 85px 20px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.45);
 }
 
-/* Tip: background-attachment fixed puede dar lag en mobile, lo apagamos abajo */
+/* Mouse effect (usa variables, no rompe otras animaciones) */
+#hero-title{
+  transform: rotateY(var(--rx, 0deg)) rotateX(var(--ry, 0deg));
+  transition: transform 0.12s linear;
+  transform-style: preserve-3d;
+}
+
+/* Título principal */
+#hero-title{
+  font-family: "Bebas Neue", system-ui, sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: #fff;
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.55),
+    0 0 18px rgba(255, 255, 255, .15);
+}
+
+/* Si tu H1 del hero NO es #hero-title, esto lo cubre */
 #hero h1{
   font-size: 3rem;
   margin-bottom: 15px;
@@ -180,6 +215,19 @@ nav a:hover::after{ width: 100%; }
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
+/* TEXTO GRANDE: “Más de 40 años…” (MODERNO + BLANCO) */
+.hero-headline{
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: #fff; /* <- lo que cambie */
+  margin: 10px 0 14px;
+  text-shadow: 0 2px 10px rgba(0,0,0,.55);
+}
+
+/* Texto secundario del hero */
 #hero p{
   font-size: 1.35rem;
   margin-bottom: 22px;
@@ -228,6 +276,15 @@ h2{
 #social-map p{
   max-width: 900px;
   margin: 0 auto 20px;
+}
+
+#menu-section{
+  background-color: #ffffff1f; /* tu crema */
+  background-image:
+    radial-gradient(rgba(0, 0, 0, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(178,34,34,0.03), rgba(255, 0, 0, 0));
+  background-size: 18px 18px, 100% 100%;
+  background-position: 0 0, 0 0;
 }
 
 /* Highlights list */
@@ -535,6 +592,10 @@ footer{
   #hero{ padding: 70px 18px; }
   #hero h1{ font-size: 2.1rem; }
   #hero p{ font-size: 1.15rem; }
+
+  .hero-headline{
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
 
   .info-line{
     font-size: 1rem;
