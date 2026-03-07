@@ -1,75 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- =======================
-       META / BASICS
-  ======================== -->
+  <!-- META / BASICS -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Country Pizza | Aguadilla</title>
-  <meta name="description" content="Country Pizza Sport Bar en Aguadilla - Pizzas, barra, billar y más.">
-  <meta name="keywords" content="pizza, aguadilla, barra, billar, country pizza, restaurante, puerto rico">
-  <meta name="author" content="Country Pizza & Norvak">
+  <meta
+    name="description"
+    content="Country Pizza Sport Bar en Aguadilla - Pizzas, barra, billar y más."
+  />
+  <meta
+    name="keywords"
+    content="pizza, aguadilla, barra, billar, country pizza, restaurante, puerto rico"
+  />
+  <meta name="author" content="Country Pizza & Norvak" />
+  <link rel="canonical" href="https://chepot87.github.io/country-pizza/" />
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://chepot87.github.io/country-pizza/">
+  <!-- FAVICON -->
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
 
-  <!-- =======================
-       FAVICON
-  ======================== -->
-  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
 
-  <!-- =======================
-       FONTS (UPDATED)
-       Headings: Bebas Neue
-       Body: Montserrat
-  ======================== -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <!-- =======================
-       STYLES
-  ======================== -->
+  <!-- STYLES -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- =======================
-       ICONS
-  ======================== -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- ICONS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-  <!-- =======================
-       OPEN GRAPH
-  ======================== -->
-  <meta property="og:title" content="Country Pizza | Aguadilla">
-  <meta property="og:description" content="Más de 40 años sirviendo buena comida y jangueo en Aguadilla.">
-  <meta property="og:image" content="https://chepot87.github.io/country-pizza/img/logo.svg">
-  <meta property="og:url" content="https://chepot87.github.io/country-pizza/">
-  <meta property="og:type" content="website">
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Country Pizza | Aguadilla" />
+  <meta
+    property="og:description"
+    content="Más de 40 años sirviendo buena comida y jangueo en Aguadilla."
+  />
+  <meta
+    property="og:image"
+    content="https://chepot87.github.io/country-pizza/img/logo.svg"
+  />
+  <meta property="og:url" content="https://chepot87.github.io/country-pizza/" />
+  <meta property="og:type" content="website" />
 
-  <!-- =======================
-       GOOGLE ANALYTICS (placeholder)
-  ======================== -->
+  <!-- GOOGLE ANALYTICS -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-XXXXXXXXXX");
   </script>
 </head>
 
 <body>
-
-  <!-- =======================
-       HEADER
-  ======================== -->
+  <!-- HEADER -->
   <header>
     <div class="header-container">
       <div class="logo-brand">
-        <img src="img/logo.svg" alt="Logo de Country Pizza" class="logo-img">
+        <img src="img/logo.svg" alt="Logo de Country Pizza" class="logo-img" />
         <span class="brand-name">
-          Country Pizza<br>
+          Country Pizza<br />
           <small>Sport Bar</small>
         </span>
       </div>
@@ -85,71 +90,113 @@
   </header>
 
   <main>
-
-    <!-- =======================
-         HERO
-    ======================== -->
+    <!-- HERO -->
     <section id="hero">
       <h1 id="hero-title">Country Pizza</h1>
-      <h2 class="hero-headline">Más de 40 años brindándoles servicio en Aguadilla Puerto Rico.</h2>
+      <h2 class="hero-headline">
+        Más de 40 años brindándoles servicio en Aguadilla Puerto Rico.
+      </h2>
       <p>Cocina, música, barra y billares... todo en un solo lugar.</p>
 
-      <!-- NOTE: ideal sería <button>, pero lo dejo como link porque tu JS ya usa preventDefault -->
-      <a href="#" class="btn" id="open-happy">Happy Hours!</a>
+      <button type="button" class="btn" id="open-happy">Happy Hours!</button>
     </section>
 
-    <!-- =======================
-         MODAL: HAPPY HOURS
-    ======================== -->
-    <div id="happy-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="happy-title" aria-hidden="true">
-      <div class="modal-content">
+    <!-- MODAL: HAPPY HOURS -->
+    <div
+      id="happy-modal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="happy-title"
+      aria-hidden="true"
+    >
+      <div class="modal-content happy-modal-content">
         <span id="close-happy" class="close" aria-label="Cerrar modal">&times;</span>
         <h2 id="happy-title">Happy Hours</h2>
 
         <div class="cards-container">
-          <div class="card">🍺 2x1 en cervezas locales – 5pm a 7pm</div>
-          <div class="card">🍕 Combo Pizza + Cerveza $9.99</div>
-          <div class="card">🎱 Juega billar GRATIS con tu primera ronda</div>
+          <div class="card">
+            <i class="fa-solid fa-beer-mug-empty happy-icon" aria-hidden="true"></i>
+            <span>2x1 en cervezas locales – 5pm a 7pm</span>
+          </div>
+
+          <div class="card">
+            <i class="fa-solid fa-pizza-slice happy-icon" aria-hidden="true"></i>
+            <span>Combo Pizza + Cerveza $9.99</span>
+          </div>
+
+          <div class="card">
+            <i class="fa-solid fa-circle-dot happy-icon" aria-hidden="true"></i>
+            <span>Juega billar GRATIS con tu primera ronda</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- =======================
-         MODAL: MENÚ
-    ======================== -->
-    <div id="menu-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="menu-title" aria-hidden="true">
+    <!-- MODAL: MENÚ -->
+    <div
+      id="menu-modal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="menu-title"
+      aria-hidden="true"
+    >
       <div class="modal-content">
         <span id="close-menu" class="close" aria-label="Cerrar modal">&times;</span>
         <h2 id="menu-title">Menú de Almuerzo</h2>
-        <img src="img/country-menu-prueba.png" alt="Menú del restaurante" class="modal-img" loading="lazy">
+        <img
+          src="img/country-menu-prueba.png"
+          alt="Menú del restaurante"
+          class="modal-img"
+          loading="lazy"
+        />
       </div>
     </div>
 
-    <!-- =======================
-         SECCIÓN: MENÚ
-    ======================== -->
+    <!-- SECCIÓN: MENÚ -->
     <section id="menu-section">
       <h2>Variedad de platos</h2>
       <p>Pizzas, alitas, mofongo y picadera criolla al estilo de la casa.</p>
 
       <div class="gallery">
-        <img src="img/pizza.png" alt="Pizza caliente con pepperoni y queso" loading="lazy">
-        <img src="img/surtido.png" alt="Surtido de picadera criolla" loading="lazy">
-        <img src="img/mofongo.png" alt="Mofongo con carne frita y ajo" loading="lazy">
+        <img
+          src="img/pizza.png"
+          alt="Pizza caliente con pepperoni y queso"
+          loading="lazy"
+        />
+        <img
+          src="img/surtido.png"
+          alt="Surtido de picadera criolla"
+          loading="lazy"
+        />
+        <img
+          src="img/mofongo.png"
+          alt="Mofongo con carne frita y ajo"
+          loading="lazy"
+        />
       </div>
 
-      <a href="#" class="btn" id="open-menu">MENÚ DE ALMUERZO</a>
+      <button type="button" class="btn" id="open-menu">MENÚ DE ALMUERZO</button>
     </section>
 
-    <!-- =======================
-         SECCIÓN: BARRA
-    ======================== -->
+    <!-- SECCIÓN: BARRA -->
     <section id="barra">
       <h2>Billares y La Mejor Vibra</h2>
-      <p>Ambiente para jangueo con barra, billares & buena música.</p>
+      <p>Ambiente para jangueo con barra, billares y buena música.</p>
 
-      <img src="img/billar.jpeg" alt="Barra iluminada y mesas de billar" class="full-img" loading="lazy">
-      <img src="img/salon-billar.png" alt="Amplio salón de billar" class="full-img" loading="lazy">
+      <img
+        src="img/billar.jpeg"
+        alt="Barra iluminada y mesas de billar"
+        class="full-img"
+        loading="lazy"
+      />
+      <img
+        src="img/salon-billar.png"
+        alt="Amplio salón de billar"
+        class="full-img"
+        loading="lazy"
+      />
 
       <ul class="highlights">
         <li>✔ Take away</li>
@@ -158,9 +205,7 @@
       </ul>
     </section>
 
-    <!-- =======================
-         SECCIÓN: CONTACTO
-    ======================== -->
+    <!-- SECCIÓN: CONTACTO -->
     <section id="contacto">
       <h2>Visítanos</h2>
 
@@ -185,21 +230,36 @@
       </div>
     </section>
 
-    <!-- =======================
-         SECCIÓN: REDES + MAPA
-    ======================== -->
+    <!-- SECCIÓN: REDES + MAPA -->
     <section id="social-map">
       <h2>Conéctate con nosotros</h2>
       <p>Síguenos en nuestras redes sociales y visita nuestro local.</p>
 
       <div class="social-icons">
-        <a href="https://www.facebook.com/CountryPizzaa" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <a
+          href="https://www.facebook.com/CountryPizzaa"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
           <i class="fab fa-facebook-f" aria-hidden="true"></i>
         </a>
-        <a href="https://www.instagram.com/countrypizzapr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+
+        <a
+          href="https://www.instagram.com/countrypizzapr"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
           <i class="fab fa-instagram" aria-hidden="true"></i>
         </a>
-        <a href="https://wa.me/17878914860" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+
+        <a
+          href="https://wa.me/17878914860"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+        >
           <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
       </div>
@@ -211,40 +271,34 @@
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.149722116716!2d-67.12504398730123!3d18.50460047092597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c029616f8e64d75%3A0x7356a68ba6d44dca!2sCountry%20Pizza!5e0!3m2!1sen!2sus!4v1750828525017!5m2!1sen!2sus"
           width="100%"
           height="300"
-          style="border:0; border-radius: 12px; margin-top: 20px;"
+          style="border: 0; border-radius: 12px; margin-top: 20px;"
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa de Country Pizza en Aguadilla">
-        </iframe>
+          title="Mapa de Country Pizza en Aguadilla"
+        ></iframe>
       </div>
     </section>
-
   </main>
 
-  <!-- =======================
-       FOOTER
-  ======================== -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="img/logo.svg" alt="Logo Country Pizza" loading="lazy">
+        <img src="img/logo.svg" alt="Logo Country Pizza" loading="lazy" />
       </div>
+
       <div class="footer-info">
         <p>© 2025 Country Pizza</p>
-        <p>Hecho con ❤️ por Norvak©</p>
+        <p>
+          Hecho con ❤️ por
+          <a href="https://norvak.com" target="_blank" rel="noopener noreferrer">Norvak©</a>
+        </p>
       </div>
     </div>
   </footer>
 
-  <!-- =======================
-       JS
-  ======================== -->
+  <!-- JS -->
   <script src="script.js"></script>
-
-  <!-- TEST SYNC 123 -->
-
 </body>
 </html>
-
-

@@ -1,135 +1,158 @@
-// ========== MODAL FUNCIONALIDAD ==========
+// ==========================================================================
+// COUNTRY PIZZA - script.js
+// Modals + reveal on scroll + hero title tilt
+// ==========================================================================
 
-// === HAPPY HOURS MODAL ===
-const happyModal = document.getElementById('happy-modal');
-const openHappy = document.getElementById('open-happy');
-const closeHappy = document.getElementById('close-happy');
+// ==========================================================================
+// 1) ELEMENTOS
+// ==========================================================================
+const body = document.body;
 
-// === MENÚ MODAL ===
-const menuModal = document.getElementById('menu-modal');
-const openMenu = document.getElementById('open-menu');
-const closeMenu = document.getElementById('close-menu');
+// Happy Hours modal
+const happyModal = document.getElementById("happy-modal");
+const openHappy = document.getElementById("open-happy");
+const closeHappy = document.getElementById("close-happy");
 
-// Función para abrir modal
-function openModal(modal, hasCards = false) {
+// Menú modal
+const menuModal = document.getElementById("menu-modal");
+const openMenu = document.getElementById("open-menu");
+const closeMenu = document.getElementById("close-menu");
+
+// Hero title
+const heroTitle = document.getElementById("hero-title");
+
+// ==========================================================================
+// 2) FUNCIONES DE MODAL
+// ==========================================================================
+function openModal(modal, animateCards = false) {
   if (!modal) return;
 
-  modal.classList.add('show');
-  document.body.classList.add('modal-open');
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  body.classList.add("modal-open");
 
-  if (hasCards) {
-    const cards = modal.querySelectorAll('.card');
+  if (animateCards) {
+    const cards = modal.querySelectorAll(".card");
+
     cards.forEach((card, index) => {
-      card.style.animation = 'none';
-      void card.offsetHeight; // Trigger reflow
-      card.style.animation = `fadeUpCard 0.5s ease-out forwards`;
+      card.style.animation = "none";
+      void card.offsetHeight; // fuerza reflow
+      card.style.animation = "fadeUpCard 0.5s ease-out forwards";
       card.style.animationDelay = `${0.3 + index * 0.2}s`;
     });
   }
 }
 
-// Función para cerrar modal
 function closeModal(modal) {
   if (!modal) return;
 
-  modal.classList.remove('show');
-  document.body.classList.remove('modal-open');
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
+  body.classList.remove("modal-open");
 }
 
-// === EVENTOS: HAPPY HOURS ===
-if (happyModal && openHappy && closeHappy) {
-  openHappy.addEventListener('click', (e) => {
-    e.preventDefault();
-    openModal(happyModal, true); // true = tiene cards animadas
+function bindModal({ modal, openBtn, closeBtn, animateCards = false }) {
+  if (!modal || !openBtn || !closeBtn) return;
+
+  openBtn.addEventListener("click", () => {
+    openModal(modal, animateCards);
   });
 
-  closeHappy.addEventListener('click', () => {
-    closeModal(happyModal);
-  });
-}
-
-// === EVENTOS: MENÚ ===
-if (menuModal && openMenu && closeMenu) {
-  openMenu.addEventListener('click', (e) => {
-    e.preventDefault();
-    openModal(menuModal);
-  });
-
-  closeMenu.addEventListener('click', () => {
-    closeModal(menuModal);
+  closeBtn.addEventListener("click", () => {
+    closeModal(modal);
   });
 }
 
-// === CERRAR MODAL SI HACES CLICK FUERA DEL CONTENIDO ===
-window.addEventListener('click', (e) => {
+// ==========================================================================
+// 3) INICIALIZAR MODALS
+// ==========================================================================
+bindModal({
+  modal: happyModal,
+  openBtn: openHappy,
+  closeBtn: closeHappy,
+  animateCards: true,
+});
+
+bindModal({
+  modal: menuModal,
+  openBtn: openMenu,
+  closeBtn: closeMenu,
+});
+
+// Cerrar modal haciendo click fuera del contenido
+window.addEventListener("click", (e) => {
   if (happyModal && e.target === happyModal) closeModal(happyModal);
   if (menuModal && e.target === menuModal) closeModal(menuModal);
 });
 
-// === CERRAR MODAL CON ESCAPE ===
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    if (happyModal && happyModal.classList.contains('show')) closeModal(happyModal);
-    if (menuModal && menuModal.classList.contains('show')) closeModal(menuModal);
-  }
+// Cerrar modal con Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+
+  if (happyModal?.classList.contains("show")) closeModal(happyModal);
+  if (menuModal?.classList.contains("show")) closeModal(menuModal);
 });
 
+// ==========================================================================
+// 4) REVEAL AL HACER SCROLL
+// Se anima una vez y luego se queda quieto
+// ==========================================================================
+const revealSections = document.querySelectorAll("section:not(#hero)");
 
-// ========== ANIMACIÓN DE APARICIÓN AL HACER SCROLL (REVEAL) ==========
-// Animar una sola vez y luego dejarlo quieto (evita bugs al volver arriba)
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
 
-const observerOptions = { threshold: 0.2 };
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.2 }
+  );
 
-const revealObserver = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-      obs.unobserve(entry.target); // se anima una vez y ya
-    }
+  revealSections.forEach((section) => {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(30px)";
+    section.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+    revealObserver.observe(section);
   });
-}, observerOptions);
+} else {
+  // fallback para navegadores viejos
+  revealSections.forEach((section) => {
+    section.style.opacity = "1";
+    section.style.transform = "translateY(0)";
+  });
+}
 
-// Aplicar a todas las secciones (EXCEPTO el hero si tiene id="hero")
-document.querySelectorAll('section:not(#hero)').forEach(section => {
-  section.style.opacity = "0";
-  section.style.transform = "translateY(30px)";
-  section.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
-  revealObserver.observe(section);
-});
+// ==========================================================================
+// 5) EFECTO INTERACTIVO EN EL TÍTULO DEL HERO
+// Usa CSS variables --rx y --ry
+// ==========================================================================
+if (heroTitle) {
+  document.addEventListener("mousemove", (e) => {
+    const x = (window.innerWidth / 2 - e.pageX) / 40;
+    const y = (window.innerHeight / 2 - e.pageY) / 40;
 
+    heroTitle.style.setProperty("--rx", `${x}deg`);
+    heroTitle.style.setProperty("--ry", `${y}deg`);
+  });
 
-// ========== EFECTO INTERACTIVO EN EL TÍTULO (HERO) ==========
-// IMPORTANTE: tu H1 del hero debe tener id="hero-title"
-// Esto usa CSS variables para NO pelear con otros transforms.
+  document.addEventListener("mouseleave", () => {
+    heroTitle.style.setProperty("--rx", "0deg");
+    heroTitle.style.setProperty("--ry", "0deg");
+  });
 
-document.addEventListener('mousemove', (e) => {
-  const title = document.getElementById('hero-title');
-  if (!title) return;
-
-  // Más suave (menos mareo)
-  const x = (window.innerWidth / 2 - e.pageX) / 40;
-  const y = (window.innerHeight / 2 - e.pageY) / 40;
-
-  title.style.setProperty('--rx', `${x}deg`);
-  title.style.setProperty('--ry', `${y}deg`);
-});
-
-// Reset del tilt cuando sueltas el mouse o sales de la ventana
-document.addEventListener('mouseleave', () => {
-  const title = document.getElementById('hero-title');
-  if (!title) return;
-  title.style.setProperty('--rx', `0deg`);
-  title.style.setProperty('--ry', `0deg`);
-});
-
-// Reset cuando vuelves al top (scroll arriba)
-window.addEventListener('scroll', () => {
-  const title = document.getElementById('hero-title');
-  if (!title) return;
-
-  if (window.scrollY < 40) {
-    title.style.setProperty('--rx', `0deg`);
-    title.style.setProperty('--ry', `0deg`);
-  }
-}, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.scrollY < 40) {
+        heroTitle.style.setProperty("--rx", "0deg");
+        heroTitle.style.setProperty("--ry", "0deg");
+      }
+    },
+    { passive: true }
+  );
+}
