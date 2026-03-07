@@ -770,9 +770,10 @@ footer{
 }
 
 #happy-modal .card{
-  background: rgba(255, 255, 255, 0.88) !important;
+
   backdrop-filter: blur(2px);
 }
+
 
 #happy-modal .modal-content.happy-modal-content{
   background: url("img/country-background.png") !important;
