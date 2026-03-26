@@ -78,7 +78,7 @@ img{
    2) TYPOGRAPHY
    ========================================================================== */
 h1, h2, h3, h4, h5, h6{
-  font-family: "Rock Salt", cursive;
+  font-family: "Bebas Neue", system-ui, sans-serif;
   color: var(--primary);
 }
 
@@ -239,7 +239,7 @@ nav a:hover::after{
 }
 
 .hero-headline{
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-weight: 800;
   font-size: clamp(1.9rem, 4.2vw, 3rem);
   line-height: 1.15;
@@ -447,7 +447,7 @@ body.modal-open{
 }
 
 /* ==========================================================================
-   10) HAPPY HOURS MODAL BASE
+   10) HAPPY HOURS MODAL
    ========================================================================== */
 #happy-modal #happy-title{
   margin-bottom: 8px;
@@ -515,17 +515,9 @@ body.modal-open{
   line-height: 1;
 }
 
-#happy-modal .card:nth-child(1){
-  animation-delay: 0.3s;
-}
-
-#happy-modal .card:nth-child(2){
-  animation-delay: 0.5s;
-}
-
-#happy-modal .card:nth-child(3){
-  animation-delay: 0.7s;
-}
+#happy-modal .card:nth-child(1){ animation-delay: 0.3s; }
+#happy-modal .card:nth-child(2){ animation-delay: 0.5s; }
+#happy-modal .card:nth-child(3){ animation-delay: 0.7s; }
 
 @keyframes fadeUpCard{
   to{
@@ -755,8 +747,7 @@ footer{
 }
 
 /* ==========================================================================
-   15) FINAL FORCE FIX - HAPPY HOURS
-   Esto va al final para que gane sobre reglas viejas
+   15) HAPPY HOURS MODAL BACKGROUND FIX
    ========================================================================== */
 #happy-modal .modal-content.happy-modal-content{
   background-image:
@@ -768,12 +759,6 @@ footer{
   background-size: 900px !important;
   border: 2px solid var(--primary) !important;
 }
-
-#happy-modal .card{
-
-  backdrop-filter: blur(2px);
-}
-
 
 #happy-modal .modal-content.happy-modal-content{
   background: url("img/country-background.png") !important;
